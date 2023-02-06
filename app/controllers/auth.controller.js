@@ -18,7 +18,15 @@ const createToken = (id) => {
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
-    username: req.body.username,
+    gender: req.body.gender,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    phone: req.body.phone,
+    birthdate: req.body.birthdate,
+    city: req.body.city,
+    country: req.body.country,
+    photo: req.body.photo,
+    category: req.body.category,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
   })
@@ -51,12 +59,12 @@ exports.signup = (req, res) => {
 exports.signin = (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   })
     .then((user) => {
       if (!user) {
-        return res.status(200).send({ errorsusername: "User Not found." });
+        return res.status(200).send({ errorsemail: "email Not found." });
       }
 
       const passwordIsValid = bcrypt.compareSync(

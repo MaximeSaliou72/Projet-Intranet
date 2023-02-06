@@ -24,10 +24,16 @@ module.exports.userInfo = (req, res) => {
       }
       res.status(200).send({
         id: id.id,
-        username: id.username,
+        gender: id.gender,
+        firstname: id.firstname,
+        lastname: id.lastname,
         email: id.email,
-        picture: id.picture,
-        bio: id.bio,
+        photo: id.photo,
+        phone : id.phone,
+        birthdate: id.birthdate,
+        city: id.city,
+        country:id.country,
+        category:id.category
       });
     })
     .catch((err) => {
@@ -42,9 +48,16 @@ module.exports.updateUser = async (req, res) => {
     
         if (UserModel != null) {
           UserModel.update(
-            { bio: req.body.bio }, 
+            { firstname: req.body.firstname },
+            { lastname: req.body.lastname },
+            // { phone: req.body.phone },   
             { where: { id: req.params.id } }
             );  
+            res.status(200).send({ 
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
+              // phone: req.body.phone
+            });
             }    
         } catch (err) {
           console.log(err)

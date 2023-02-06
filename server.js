@@ -28,7 +28,7 @@ const Role = db.role;
 // app.get("/", (req, res) => {
 //   res.json({ message: "Welcome " });
 // });
-db.sequelize.sync();
+// db.sequelize.sync();
 
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
