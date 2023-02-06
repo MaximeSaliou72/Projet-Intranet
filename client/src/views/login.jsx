@@ -4,12 +4,15 @@ const Login = () => {
             <h1>Connexion</h1>
             <p>Pour vous connecter à l'intranet, emtrez votre identifiant et mot de passe.</p>
             <form className="loginForm">
-                <label>Email
+                <div>
+                    <label>Email </label>
                     <input placeholder="ex: owen.lopez@exemple.com"></input>
-                </label>
-                <label> Mot de passe
-                    <input placeholder="password"></input>
-                </label>
+                </div>
+     
+                <div>
+                    <label>Mot de passe </label>
+                    <input text='password' placeholder="Password"></input>
+                </div>
                 <button className="button">Connexion</button>
             </form>
         </main>
