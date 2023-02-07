@@ -48,8 +48,16 @@ module.exports.updateUser = async (req, res) => {
     
         if (UserModel != null) {
           UserModel.update(
-            { firstname: req.body.firstname },
-            { lastname: req.body.lastname },
+            { gender: req.body.gender,
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
+              phone: req.body.phone,
+              birthdate: req.body.birthdate,
+              city: req.body.city,
+              country: req.body.country,
+              photo: req.body.photo,
+              category: req.body.category
+            },
             // { phone: req.body.phone },   
             { where: { id: req.params.id } }
             );  
