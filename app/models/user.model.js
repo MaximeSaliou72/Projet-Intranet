@@ -17,7 +17,6 @@ module.exports = (sequelize, Sequelize) => {
       },
       phone: {
         type: Sequelize.STRING,
-        default:"https://randomuser.me/api/portraits/men/40.jpg",
       },
       birthdate: {
         type: Sequelize.STRING

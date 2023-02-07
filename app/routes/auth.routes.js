@@ -5,7 +5,7 @@ module.exports = function(app) {
   
 
   app.post(
-    "/api/auth/signup",
+    "/app/auth/signup",
     [
       verifySignUp.checkDuplicateEmail,
       verifySignUp.checkRolesExisted
@@ -13,7 +13,7 @@ module.exports = function(app) {
     controller.signup
   );
 
-  app.post("/api/auth/signin", controller.signin);
+  app.post("/app/auth/signin", controller.signin);
 
   app.get("/logout", controller.logout);
 

@@ -4,7 +4,8 @@ const UserModel = db.user;
 
 
 module.exports.checkUser = (req, res, next) => {
-    const token = req.cookies.jwt;
+    const authHeader  =  req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1]
     if (token) {
         
         jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
@@ -24,12 +25,15 @@ module.exports.checkUser = (req, res, next) => {
         });
     }else{
         res.locals.user = null;
+        
         next();
     }
     console.log("check user");
 }
 module.exports.requireAuth = (req, res, next) => {
-    const token = req.cookies.jwt;
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+
     if(token){
         jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
             if (err) {

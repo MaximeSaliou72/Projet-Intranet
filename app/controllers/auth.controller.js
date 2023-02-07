@@ -80,14 +80,18 @@ exports.signin = (req, res) => {
       }
 
       const token = createToken(user.id);
-      res.cookie("jwt", token, { httpOnly: true, maxAge });
+    //   res.send({
+    //     token,
+    // });
+    res.header('Authorization', 'Bearer ' + token);
+      // res.header( token, { httpOnly: true, maxAge });
       res.status(200).send({ user: user.id });
-
-      var authorities = [];
+      const authorities = [];
       user.getRoles().then((roles) => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push("ROLE_" + roles[i].name.toUpperCase());
         }
+        //return res.status(200).json('auth_ok');
         // res.status(200).send({
         //   id: user.id,
         //   username: user.username,
