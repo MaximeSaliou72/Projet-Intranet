@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const maxAge = 3 * 60 * 24 * 60 * 1000;
 
-const createToken = (id) => {
+const generateAccessToken = (id) => {
   return jwt.sign({ id }, process.env.TOKEN_SECRET, {
     expiresIn: maxAge,
   });
@@ -44,7 +44,6 @@ exports.signup = (req, res) => {
           });
         });
       } else {
-        // user role = 1
         user.setRoles([1]).then(() => {
           res.send({ message: "User registered successfully!" });
         });
@@ -74,23 +73,21 @@ exports.signin = (req, res) => {
 
       if (!passwordIsValid) {
         return res.status(200).send({
-          // accessToken: null,
           errorspassword: "Invalid Password!",
         });
       }
 
-      const token = createToken(user.id);
-    //   res.send({
-    //     token,
-    // });
-    res.header('Authorization', 'Bearer ' + token);
-      // res.header( token, { httpOnly: true, maxAge });
-      res.status(200).send({ user: user.id });
+    
+      const accessToken = generateAccessToken(user.id);
       const authorities = [];
       user.getRoles().then((roles) => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push("ROLE_" + roles[i].name.toUpperCase());
         }
+        
+        res.send({
+          accessToken,
+        });
         //return res.status(200).json('auth_ok');
         // res.status(200).send({
         //   id: user.id,

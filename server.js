@@ -17,10 +17,6 @@ app.use(cookieParser());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-app.get('*', checkUser);
-app.get('/jwtid', requireAuth, (req,res) => {
-  res.status(200).send("" + res.locals.user.id);
-});
 
 const db = require("./app/models");
 const Role = db.role;
@@ -32,6 +28,7 @@ const Role = db.role;
 
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+
 
 const PORT = process.env.PORT ;
 app.listen(PORT, () => {
