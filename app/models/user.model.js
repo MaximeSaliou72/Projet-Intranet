@@ -19,7 +19,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
       birthdate: {
-        type: Sequelize.STRING
+        type: Sequelize.DATEONLY
       },
       city: {
         type: Sequelize.STRING

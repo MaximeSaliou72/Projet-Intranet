@@ -72,3 +72,10 @@ module.exports.updateUser = async (req, res) => {
           res.status(500).send({ message: err });
     }
 };
+
+module.exports.getAllUsersRandom = async (req, res) => {
+  const users = await UserModel.findAll({
+    attributes: { exclude: ["password"] },
+  });
+  res.status(200).json(users);
+};
