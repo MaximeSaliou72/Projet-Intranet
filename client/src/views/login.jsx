@@ -13,7 +13,6 @@ const Login = () => {
                 email: email,
                 password: password
             });
-            console.log(e)
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
