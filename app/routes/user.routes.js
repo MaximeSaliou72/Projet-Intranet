@@ -7,7 +7,7 @@ const upload = multer();
 module.exports = function (app) {
   app.get("/app/user/:id", middleware.headersTest,controller.userInfo);
   app.get("/app/all",middleware.headersTest, controller.getAllUsers);
-  app.post("app/upload", upload.single("file"), uploadController.uploadProfil);
+  app.post("/app/upload", upload.single("file"), uploadController.uploadProfil);
 
   app.put("/app/user/:id", controller.updateUser);
 };
