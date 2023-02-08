@@ -1,11 +1,11 @@
-.loginPage{
+.loginPage, .registerPage{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.loginForm {
+.loginForm, .registerForm {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
