@@ -79,3 +79,21 @@ module.exports.getAllUsersRandom = async (req, res) => {
   });
   res.status(200).json(users);
 };
+
+module.exports.deleteUser = async (req, res) => {
+  UserModel.destroy({
+    where: {
+      email: req.body.email
+    },
+  })
+  .then((email) => {    
+    if (!email) {
+    return res.status(200).send({ errorsid: "email Not found." });
+  }
+    res.status(200).send({ email: "email delete." });
+   })
+    
+  .catch((err) => {
+    res.status(500).send({ message: err.message });
+  });
+};
