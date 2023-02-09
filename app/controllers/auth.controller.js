@@ -103,6 +103,6 @@ exports.signin = (req, res) => {
 };
 
 exports.logout = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1 });
+  jwt.destroy(accessToken)
   res.redirect("/");
 };

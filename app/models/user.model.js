@@ -19,7 +19,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
       birthdate: {
-        type: Sequelize.STRING
+        type: Sequelize.DATEONLY
       },
       city: {
         type: Sequelize.STRING
@@ -28,7 +28,8 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       photo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: "./uploads/profil/random-user.png"
       },
       category: {
         type: Sequelize.STRING

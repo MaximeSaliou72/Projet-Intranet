@@ -39,7 +39,7 @@ module.exports.uploadProfil = async (req, res) => {
         await UserModel.findByPk(req.body.userId)
             if (UserModel != null) {
                 UserModel.update(
-                    {picture: "./uploads/profil/" + fileName},
+                    {photo: "./uploads/profil/" + fileName},
                     { where: { id: req.body.userId }}
                     )
                 }   
