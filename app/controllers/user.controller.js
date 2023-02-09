@@ -73,11 +73,13 @@ module.exports.updateUser = async (req, res) => {
     }
 };
 
+
 module.exports.getAllUsersRandom = async (req, res) => {
   const users = await UserModel.findAll({
     attributes: { exclude: ["password"] },
   });
-  res.status(200).json(users);
+  rand = ~~(Math.random()*users.length)
+  res.status(200).json(users[rand]);
 };
 
 module.exports.deleteUser = async (req, res) => {
