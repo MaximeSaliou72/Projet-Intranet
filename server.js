@@ -15,7 +15,6 @@ app.use(cors(
 app.use(express.json());
 app.use(cookieParser());
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
 
 
 const db = require("./app/models");

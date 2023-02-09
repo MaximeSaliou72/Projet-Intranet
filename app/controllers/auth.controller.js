@@ -9,8 +9,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const maxAge = 3 * 60 * 24 * 60 * 1000;
 
-const generateAccessToken = (id) => {
-  return jwt.sign({ id }, process.env.TOKEN_SECRET, {
+const generateAccessToken = (user) => {
+  return jwt.sign({ user }, process.env.TOKEN_SECRET, {
     expiresIn: maxAge,
   });
 };
@@ -78,7 +78,7 @@ exports.signin = (req, res) => {
       }
 
     
-      const accessToken = generateAccessToken(user.id);
+      const accessToken = generateAccessToken(user);
       const authorities = [];
       user.getRoles().then((roles) => {
         for (let i = 0; i < roles.length; i++) {

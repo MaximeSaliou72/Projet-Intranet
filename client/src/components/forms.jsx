@@ -59,7 +59,7 @@ const Form = (props) => {
                 lastName: lastName,
                 phone: phone,
                 photo: null,
-                birthdate: birthdate,
+                birthdate: Date.now(),
                 city: city,
                 country: country,
                 createdAt:Date.now(),
