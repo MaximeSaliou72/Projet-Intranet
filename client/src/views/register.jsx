@@ -7,7 +7,6 @@ const Register = () => {
         <div>
            <Form title="Crée un utilisateur" register='true' /> 
         </div>
-        
     )
 
 }

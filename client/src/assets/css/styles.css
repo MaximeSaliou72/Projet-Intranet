@@ -16,3 +16,18 @@
     background-color: brown;
     margin-top: 1em;
 }
+
+img {
+    width: 200px;
+    height: 300px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-evenly;
+}
+.userCard {
+    display: flex;
+    width: 45%;
+    background-color: #e6e6e6;
+}
