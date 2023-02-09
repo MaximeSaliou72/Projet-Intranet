@@ -13,15 +13,13 @@ const Collaborators = () => {
     }, []);
 
     const getUsers = async () => {
-        // const response = await axios.get('http://localhost:8080/app/all');
-        // setUsers(response.data);
         try {
             const response = await axios({
               method: 'get',
               url: 'http://localhost:8080/app/all',
-              data: {
-                token
-              },
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
             });
             console.log(response.data)
             setUsers(response.data);
@@ -35,7 +33,7 @@ const Collaborators = () => {
         
         <div>
             <h1>Liste des collaborateurs</h1>
-            {/* <Card data={users}/> */}
+            <Card data={users}/>
         </div>
     )
 }

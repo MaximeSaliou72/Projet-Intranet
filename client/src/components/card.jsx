@@ -21,8 +21,8 @@ return (
             <div>
                 <p>{user.firstname} {user.lastname}</p>
                 <p>{user.email}</p>
-                <button onclick={editAccount}>Editer</button>
-                <button onclick={deleteAccount}>Supprimer</button>
+                <button onClick={editAccount}>Editer</button>
+                <button onClick={deleteAccount}>Supprimer</button>
             </div>
         ))}
     </div>
