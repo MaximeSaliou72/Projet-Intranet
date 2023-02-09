@@ -53,15 +53,15 @@ const Form = (props) => {
                 await axios.post('http://localhost:8080/app/auth/signup', {
                 gender: gend,
                 category: metier,
-                email: email,
-                password: password,
-                firstName: firstName,
-                lastName: lastName,
-                phone: phone,
+                email,
+                password,
+                firstName,
+                lastName,
+                phone,
                 photo: null,
                 birthdate: Date.now(),
-                city: city,
-                country: country,
+                city,
+                country,
                 createdAt:Date.now(),
                 updateAt:Date.now()
             });
@@ -79,7 +79,7 @@ const Form = (props) => {
 return (
     <div className="registerPage">
         <h1>{props.title}</h1>
-        <form  onSubmit={Submit} className="registerForm">
+        <form onSubmit={Submit} className="registerForm">
             <div>
                 <label>Civilité </label>
                 <select onChange={(e) => setGend(e.target.value)}>

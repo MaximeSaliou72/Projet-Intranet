@@ -7,27 +7,11 @@ import { storeTokenInLocalStorage } from '../lib/common';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [msg, setMsg] = useState('');
     const navigate = useNavigate();
     const { user, authenticated } = useUser();
 
-    if (user || authenticated) {
-      navigate('./collaborators')
-    }
-
-    // const Auth = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         await axios.post('http://localhost:8080/app/auth/signin', {
-    //             email: email,
-    //             password: password
-    //         });
-    //         // navigate('/collaborators')
-    //     } catch (error) {
-    //         if (error.response) {
-    //             setMsg(error.response.data.msg);
-    //         }
-    //     }
+    // if (user || authenticated) {
+    //   navigate('./collaborators')
     // }
 
     const Auth = async (e) => {

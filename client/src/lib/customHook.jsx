@@ -11,10 +11,10 @@ export function useUser() {
   useEffect(() => {
     async function getUserDetails() {
       const { authenticated, user } = await getAuthenticatedUser();
-      if (!authenticated) {
-        navigate('/');
-        return;
-      }
+      // if (!authenticated) {
+      //   navigate('/');
+      //   return;
+      // }
       setUser(user);
       setAutenticated(authenticated);
     }
