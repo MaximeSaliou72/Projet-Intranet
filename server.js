@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const cookieParser = require('cookie-parser');
 require('dotenv').config({path: './app/config/.env'})
 const {checkUser, requireAuth} = require('./app/middleware/authmiddleware');
 const app = express();
@@ -13,9 +12,8 @@ app.use(cors(
 ));
 // parse requests of content-type - application/json
 app.use(express.json());
-app.use(cookieParser());
+;
 // parse requests of content-type - application/x-www-form-urlencoded
-
 
 const db = require("./app/models");
 const Role = db.role;

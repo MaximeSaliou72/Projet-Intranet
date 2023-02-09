@@ -16,7 +16,8 @@ module.exports.headersTest = (req, res, next) => {
         // res.cookies('jwt', '', { maxAge: 1});
         next();
     } else {
-        const user = await UserModel.findByPk(decodedToken.id);
+
+        const user = await UserModel.findOne(decodedToken);
         res.locals.user = user.dataValues;
 
         console.log(res.locals.user);

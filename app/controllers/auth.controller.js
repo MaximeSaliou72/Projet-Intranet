@@ -18,9 +18,9 @@ const generateAccessToken = (user) => {
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
-    gender: req.body.gender,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
+    gender: req.body.gender,
     phone: req.body.phone,
     birthdate: req.body.birthdate,
     city: req.body.city,
