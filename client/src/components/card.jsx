@@ -29,6 +29,21 @@ const editAccount = () => {
     console.log("edit")   
    }
 
+   const logout = async() => {
+    try {
+        const response = await axios({
+          method: 'get',
+          url: 'http://localhost:8080/app/logout',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      }
+      catch (err) {
+        console.log('Some error occured during logout: ', err);
+      }
+   }
+
    const age = (birthdate) => {
     let date =  new Date().getFullYear();
     let age = parseInt(parseInt(date)-parseInt(birthdate));
@@ -46,7 +61,7 @@ return (
                     <p>{user.city}, {user.country}</p>
                     <p>{user.phone}</p>
                     <p>{user.email}</p>
-                    <button onClick={editAccount}>Editer</button>
+                    <button onClick={(e) => logout()}>Editer</button>
                     <button onClick={(e) => deleteAccount(user.email)}>Supprimer</button>
                 </div>
             </div>

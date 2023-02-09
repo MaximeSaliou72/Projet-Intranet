@@ -10,6 +10,19 @@ import Collaborators from './views/collaborators'
 function App() {
   return (
     <BrowserRouter>
+        <header className="App-header">
+            <ul>
+                <li className='navName'>
+                    <NavLink to={'/collaborators'}>Liste</NavLink>
+                </li>
+                <li className='navName'>
+                    <NavLink to={'/register'}>Create User</NavLink>
+                </li>
+                <li className='navName'>
+                    <NavLink to={'/logout'}>Deconnexion</NavLink>
+                </li>
+            </ul>
+        </header>
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/collaborators" element={ <Collaborators /> } />
