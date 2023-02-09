@@ -13,7 +13,7 @@ module.exports = function(app) {
     controller.signup
   );
 
-  app.post("/app/auth/signin",middleware.headersTest, controller.signin);
+  app.post("/app/auth/signin", controller.signin);
 
   app.get("/logout", controller.logout);
 
