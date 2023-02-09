@@ -10,4 +10,5 @@ module.exports = function (app) {
   app.post("/app/upload", upload.single("file"), uploadController.uploadProfil);
   app.put("/app/user/:id", controller.updateUser);
   app.delete("/app/user", controller.deleteUser)
+  app.get("/app/allRandomUser", controller.getAllUsersRandom);
 };
