@@ -7,7 +7,6 @@ const Edit = () => {
         <div>
            <Form title="Editer un utilisateur" register='false' /> 
         </div>
-        
     )
 
 }

@@ -8,8 +8,10 @@ import Register from './views/register';
 import Collaborators from './views/collaborators'
 import Logout from './views/logout'
 import Edit from './views/edit'
+import Random from './views/random'
 
 function App() {
+
   return (
     <BrowserRouter>
         <header className="App-header">
@@ -18,7 +20,7 @@ function App() {
                     <NavLink to={'/collaborators'}>Liste</NavLink>
                 </li>
                 <li className='navName'>
-                    <NavLink to={'/register'}>Create User</NavLink>
+                    <NavLink to={'/register'}>Ajouter</NavLink>
                 </li>
                 <li className='navName'>
                     <NavLink to={'/logout'}>Deconnexion</NavLink>
@@ -31,6 +33,7 @@ function App() {
         <Route path="/register" element={ <Register /> } />
         <Route path="/edit" element={ <Edit /> } />
         <Route path="/logout" element={ <Logout /> } />
+        <Route path="/random" element={ <Random /> } />
         <Route path="*" element={ <main><h1>404 NOT FOUND</h1></main> } />
       </Routes>
     </BrowserRouter>

@@ -31,7 +31,7 @@ const Login = () => {
             return;
           }
           storeTokenInLocalStorage(response.data);
-          navigate('/collaborators')
+          navigate('/random')
         }
         catch (err) {
           console.log('Some error occured during signing in: ', err);
