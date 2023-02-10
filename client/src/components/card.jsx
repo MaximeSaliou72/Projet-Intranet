@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import imgUser from '../assets/imgUser.jpg'
 import axios from 'axios';
+
 const Card = (props) => {
 
 const users = props.data;

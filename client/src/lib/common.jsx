@@ -1,7 +1,7 @@
 import axios from 'axios';
 export function storeTokenInLocalStorage(data) {
   localStorage.setItem('token', data.accessToken);
-  localStorage.setItem('id', data.user.id);
+  localStorage.setItem('data', JSON.stringify(data.user));
 
 }
 
@@ -9,28 +9,20 @@ export function getTokenFromLocalStorage() {
   return localStorage.getItem('token');
 }
 
-export function getIdFromLocalStorage() {
-  return localStorage.getItem('id');
+export function getDataFromLocalStorage() {
+  return localStorage.getItem('data');
 }
 
 export async function getAuthenticatedUser() {
-  const defaultReturnObject = { authenticated: false, user: null };
+  const defaultReturnObject = null ;
   try {
     const token = getTokenFromLocalStorage();
-    const id = getIdFromLocalStorage();
+    const data = getDataFromLocalStorage();
 
     if (!token) {
       return defaultReturnObject;
     }
-    const response = await axios({
-      method: 'GET',
-      url: `http://localhost:8080/app/user/${id}`,
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-    
-    return response.data;
+     return data;
   }
   catch (err) {
     console.log('getAuthenticatedUser, Something Went Wrong', err);
