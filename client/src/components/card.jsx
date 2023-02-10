@@ -56,7 +56,8 @@ const Card = (props) => {
       </div>
     )
   }
- else{
+ else {
+  console.log(users)
   return (
     <div className="card">
         {users.map((user, id) => (
