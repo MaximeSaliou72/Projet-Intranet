@@ -16,6 +16,25 @@
     background-color: brown;
     margin-top: 1em;
 }
+.dataCard {
+    width: 100%
+}
+
+.dataCard p {
+    margin-left: 1.5em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonCollaborators {
+    width: 35%;
+    background-color: brown;
+    margin-top: 1em;
+}
+
 
 img {
     width: 200px;
