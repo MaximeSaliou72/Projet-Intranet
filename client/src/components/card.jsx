@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import imgUser from '../assets/imgUser.jpg'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
 
 const users = props.data;
+const navigate = useNavigate();
 
 const deleteAccount = async (email) => {
       try {
@@ -24,8 +26,7 @@ const deleteAccount = async (email) => {
       }
     };
 
-const editAccount = () => {
-    console.log("edit")   
+    const editAccount = (user) => {
    }
 
    const age = (birthdate) => {
@@ -46,7 +47,7 @@ return (
                     <p>{user.phone}</p>
                     <p>{user.email}</p>
                     <div className="buttons">
-                      <button className="buttonCollaborators" onClick={(e) => editAccount()}>Editer</button>
+                      <button className="buttonCollaborators" onClick={(e) => editAccount(user)}>Editer</button>
                       <button className="buttonCollaborators" onClick={(e) => deleteAccount(user.email)}>Supprimer</button> 
                     </div>
                 </div>

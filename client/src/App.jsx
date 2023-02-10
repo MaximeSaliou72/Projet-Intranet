@@ -7,6 +7,7 @@ import Login from './views/login';
 import Register from './views/register';
 import Collaborators from './views/collaborators'
 import Logout from './views/logout'
+import Edit from './views/edit'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={ <Login /> } />
         <Route path="/collaborators" element={ <Collaborators /> } />
         <Route path="/register" element={ <Register /> } />
+        <Route path="/edit" element={ <Edit /> } />
         <Route path="/logout" element={ <Logout /> } />
         <Route path="*" element={ <main><h1>404 NOT FOUND</h1></main> } />
       </Routes>

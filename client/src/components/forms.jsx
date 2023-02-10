@@ -48,6 +48,10 @@ const Form = (props) => {
             value: 'commerciale',
         }
     ]
+
+    // const edit = () => {
+    //     if(props.register == true)
+    // }
     
     const Submit = async (e) => {
         e.preventDefault();
