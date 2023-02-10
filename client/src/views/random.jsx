@@ -35,7 +35,6 @@ const Random = () => {
     }
 
     return (
-        
         <div>
           <div className='center'>
             <h1>Bienvenue sur l'Intranet</h1>
@@ -47,7 +46,6 @@ const Random = () => {
               <button className="buttonCollaborators" onClick={passer}>Passer</button>
               <button className="buttonCollaborators" onClick={getUser}>Dire Bonjour à quelqu'un d'autre</button>
             </div>
-
         </div>
     )
 }
