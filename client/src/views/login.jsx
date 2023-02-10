@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../lib/customHook';
 import { storeTokenInLocalStorage } from '../lib/common';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { user, authenticated } = useUser();
-
-    // if (user || authenticated) {
-    //   navigate('./collaborators')
-    // }
 
     const Auth = async (e) => {
       e.preventDefault();
@@ -32,7 +26,7 @@ const Login = () => {
             console.log('Something went wrong during signing in: ', response);
             return;
           }
-          storeTokenInLocalStorage(response.data.accessToken);
+          storeTokenInLocalStorage(response.data);
           navigate('/collaborators')
         }
         catch (err) {

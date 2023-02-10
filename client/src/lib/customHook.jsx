@@ -10,8 +10,9 @@ export function useUser() {
 
   useEffect(() => {
     async function getUserDetails() {
-      const { authenticated, user } = await getAuthenticatedUser();
-      // if (!authenticated) {
+      const user = await getAuthenticatedUser();
+      // console.log(user)
+      // if (user == null) {
       //   navigate('/');
       //   return;
       // }

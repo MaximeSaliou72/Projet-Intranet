@@ -4,7 +4,6 @@ import axios from 'axios';
 const Card = (props) => {
 
 const users = props.data;
-console.log(users)
 
 const deleteAccount = async (email) => {
       try {

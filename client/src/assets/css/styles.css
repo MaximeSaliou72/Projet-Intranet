@@ -50,11 +50,13 @@ img {
 .card {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .userCard {
     display: flex;
     width: 45%;
     background-color: #e6e6e6;
+    margin-bottom: 2em;
 }
 
 .App-header {

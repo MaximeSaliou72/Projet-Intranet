@@ -87,6 +87,7 @@ exports.signin = (req, res) => {
         
         res.send({
           accessToken,
+          user
         });
         //return res.status(200).json('auth_ok');
         // res.status(200).send({

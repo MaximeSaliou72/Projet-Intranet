@@ -7,7 +7,8 @@ import { getTokenFromLocalStorage } from '../lib/common';
 const Collaborators = () => {
     const [users, setUsers] = useState([]);
     const token = getTokenFromLocalStorage()
-
+    const { user, authenticated } = useUser();
+console.log(user)
     useEffect(() => {
         getUsers();
     }, []);
@@ -21,7 +22,6 @@ const Collaborators = () => {
                 Authorization: `Bearer ${token}`
               }
             });
-            console.log(response.data)
             setUsers(response.data);
           }
           catch (err) {
