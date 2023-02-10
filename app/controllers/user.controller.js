@@ -78,7 +78,7 @@ module.exports.getAllUsersRandom = async (req, res) => {
   const users = await UserModel.findAll({
     attributes: { exclude: ["password"] },
   });
-  rand = ~~(Math.random()*users.length)
+  rand = Math.floor(Math.random()*users.length)
   res.status(200).json(users[rand]);
 };
 
