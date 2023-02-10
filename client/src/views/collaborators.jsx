@@ -32,7 +32,7 @@ const Collaborators = () => {
     return (
         
         <div>
-            <h1>Liste des collaborateurs</h1>
+            <h1 className='title'>Liste des collaborateurs</h1>
             <Card data={users}/>
         </div>
     )
