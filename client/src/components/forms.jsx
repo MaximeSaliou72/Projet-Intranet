@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Form = (props) => {
 
@@ -49,30 +50,32 @@ const Form = (props) => {
     const Submit = async (e) => {
         e.preventDefault();
         try {
-            if(props.register == 'true') {
-                await axios.post('http://localhost:8080/app/auth/signup', {
-                gender: gend,
-                category: metier,
-                email,
-                password,
-                firstName,
-                lastName,
-                phone,
-                photo: null,
-                birthdate: Date.now(),
-                city,
-                country,
-                createdAt:Date.now(),
-                updateAt:Date.now()
+            const response = await axios({
+                method: 'post',
+                url: 'http://localhost:8080/app/auth/signup',
+                data: {
+                    gender: gend,
+                    category: metier,
+                    email,
+                    password,
+                    firstName,
+                    lastName,
+                    phone,
+                    photo: null,
+                    birthdate,
+                    city,
+                    country,
+                    createdAt:Date.now(),
+                    updateAt:Date.now()
+                },
+                header: {
+                'Content-Type':'application/json'
+                }
             });
-            } else {
-                
-            }
+            console.log(response) 
 
         } catch (error) {
-            if (error.response) {
-                setMsg(error.response.data.msg);
-            }
+            console.log('Some error occured during signup: ', error); 
         }
     }
 

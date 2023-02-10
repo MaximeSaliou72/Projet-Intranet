@@ -41,8 +41,12 @@ img {
     font-size: calc(10px + 2vmin);
     color: white;
 }
+.App-header ul {
+    display:flex;
+}
 .navName {
     list-style-type: none;
+    margin-left: 0.5em;
 }
 
 .navName a {

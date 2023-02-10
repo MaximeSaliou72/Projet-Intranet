@@ -29,21 +29,6 @@ const editAccount = () => {
     console.log("edit")   
    }
 
-   const logout = async() => {
-    try {
-        const response = await axios({
-          method: 'get',
-          url: 'http://localhost:8080/app/logout',
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-      }
-      catch (err) {
-        console.log('Some error occured during logout: ', err);
-      }
-   }
-
    const age = (birthdate) => {
     let date =  new Date().getFullYear();
     let age = parseInt(parseInt(date)-parseInt(birthdate));
