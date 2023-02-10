@@ -11,4 +11,5 @@ module.exports = function (app) {
   app.put("/app/user/:id", controller.updateUser);
   app.delete("/app/user", controller.deleteUser)
   app.get("/app/allRandomUser", controller.getAllUsersRandom);
+  app.get("/app/test",middleware.headersTokenAdmin, controller.getAllUsers);
 };
