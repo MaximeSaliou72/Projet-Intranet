@@ -87,6 +87,7 @@ exports.signin = (req, res) => {
         
         res.send({
           accessToken,
+          user: user.id
         });
         //return res.status(200).json('auth_ok');
         // res.status(200).send({
@@ -103,6 +104,7 @@ exports.signin = (req, res) => {
 };
 
 exports.logout = (req, res) => {
-  jwt.destroy(accessToken)
+  console.log('Logging user out');
+  localStorage.removeItem('token');
   res.redirect("/");
 };
