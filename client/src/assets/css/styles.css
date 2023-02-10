@@ -16,3 +16,39 @@
     background-color: brown;
     margin-top: 1em;
 }
+
+img {
+    width: 200px;
+    height: 300px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-evenly;
+}
+.userCard {
+    display: flex;
+    width: 45%;
+    background-color: #e6e6e6;
+}
+
+.App-header {
+    background-color: #870d06;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.App-header ul {
+    display:flex;
+}
+.navName {
+    list-style-type: none;
+    margin-left: 0.5em;
+}
+
+.navName a {
+    color: #fff;
+}
