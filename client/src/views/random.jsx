@@ -28,7 +28,6 @@ const Random = () => {
               }
             });
             setUsers(response.data);
-            console.log(response.data)
           }
           catch (err) {
             console.log('Some error occured during recup data: ', err);
@@ -36,14 +35,17 @@ const Random = () => {
     }
 
     return (
-        
         <div>
-            <h1 className='title'>Collaborateurs Aléatoire</h1>
+          <div className='center'>
+            <h1>Bienvenue sur l'Intranet</h1>
+            <p>La plate-forme de l'entreprise qui vous permet de retrouver tous vos collaborateurs.</p>
+            <p>Avez-vous dit boujour à : </p>
+          </div>
             <Card data={users} alone="true"/>
-            <div className='centerButton'>
+            <div className='buttons'>
               <button className="buttonCollaborators" onClick={passer}>Passer</button>
+              <button className="buttonCollaborators" onClick={getUser}>Dire Bonjour à quelqu'un d'autre</button>
             </div>
-
         </div>
     )
 }
