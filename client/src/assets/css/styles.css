@@ -11,11 +11,36 @@
     flex-direction: column;
 }
 
+.title {
+    text-align: center;
+}
+
 .button {
     width: 100%;
     background-color: brown;
     margin-top: 1em;
+    color: white;
 }
+.dataCard {
+    width: 100%
+}
+
+.dataCard p {
+    margin-left: 1.5em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonCollaborators {
+    width: 35%;
+    background-color: brown;
+    margin-top: 1em;
+    color: white;
+}
+
 
 img {
     width: 200px;
@@ -25,11 +50,13 @@ img {
 .card {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .userCard {
     display: flex;
     width: 45%;
     background-color: #e6e6e6;
+    margin-bottom: 2em;
 }
 
 .App-header {

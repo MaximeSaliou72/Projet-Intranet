@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Form = (props) => {
 
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -68,11 +70,8 @@ const Form = (props) => {
                     createdAt:Date.now(),
                     updateAt:Date.now()
                 },
-                header: {
-                'Content-Type':'application/json'
-                }
             });
-            console.log(response) 
+            navigate('/collaborators')
 
         } catch (error) {
             console.log('Some error occured during signup: ', error); 

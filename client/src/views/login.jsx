@@ -8,12 +8,10 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { user, authenticated } = useUser();
-
-    // if (user || authenticated) {
-    //   navigate('./collaborators')
-    // }
-
+    const {user} = useUser();
+    if (user) {
+        navigate('./collaborators')
+      }
     const Auth = async (e) => {
       e.preventDefault();
         try {
@@ -32,7 +30,7 @@ const Login = () => {
             console.log('Something went wrong during signing in: ', response);
             return;
           }
-          storeTokenInLocalStorage(response.data.accessToken);
+          storeTokenInLocalStorage(response.data);
           navigate('/collaborators')
         }
         catch (err) {

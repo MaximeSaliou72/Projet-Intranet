@@ -7,6 +7,7 @@ import { getTokenFromLocalStorage } from '../lib/common';
 const Collaborators = () => {
     const [users, setUsers] = useState([]);
     const token = getTokenFromLocalStorage()
+    useUser()
 
     useEffect(() => {
         getUsers();
@@ -21,7 +22,6 @@ const Collaborators = () => {
                 Authorization: `Bearer ${token}`
               }
             });
-            console.log(response.data)
             setUsers(response.data);
           }
           catch (err) {
@@ -32,7 +32,7 @@ const Collaborators = () => {
     return (
         
         <div>
-            <h1>Liste des collaborateurs</h1>
+            <h1 className='title'>Liste des collaborateurs</h1>
             <Card data={users}/>
         </div>
     )

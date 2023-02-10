@@ -5,7 +5,6 @@ import axios from 'axios';
 const Card = (props) => {
 
 const users = props.data;
-console.log(users)
 
 const deleteAccount = async (email) => {
       try {
@@ -40,14 +39,16 @@ return (
         {users.map((user, index) => (
             <div className="userCard">
                 <img src={imgUser} alt="image"/>
-                <div>               
+                <div className="dataCard">               
                     <p>{user.category}</p>
                     <p>{user.firstname} {user.lastname}  ({age(user.birthdate)} ans)</p>
                     <p>{user.city}, {user.country}</p>
                     <p>{user.phone}</p>
                     <p>{user.email}</p>
-                    <button onClick={(e) => logout()}>Editer</button>
-                    <button onClick={(e) => deleteAccount(user.email)}>Supprimer</button>
+                    <div className="buttons">
+                      <button className="buttonCollaborators" onClick={(e) => editAccount()}>Editer</button>
+                      <button className="buttonCollaborators" onClick={(e) => deleteAccount(user.email)}>Supprimer</button> 
+                    </div>
                 </div>
             </div>
         ))}
