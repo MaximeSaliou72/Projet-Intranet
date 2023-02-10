@@ -57,11 +57,10 @@ const Card = (props) => {
     )
   }
  else {
-  console.log(users)
   return (
     <div className="card">
-        {users.map((user, id) => (
-            <div className="userCard">
+        {users.map((user) => (
+            <div key={user.id} className="userCard">
                 <img src={imgUser} alt="image"/>
                 <div className="dataCard">               
                     <p>{user.category}</p>
