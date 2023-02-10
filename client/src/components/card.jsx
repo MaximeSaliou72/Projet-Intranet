@@ -2,14 +2,17 @@ import { useState, useEffect } from "react";
 import imgUser from '../assets/imgUser.jpg'
 import axios from 'axios';
 import { useUser } from '../lib/customHook';
+import { useNavigate } from 'react-router-dom';
+
 const Card = (props) => {
 
-const users = props.data;
+  const navigate = useNavigate();
+  const users = props.data;
 // const data = [];
 // data = useUser();
 // console.log(data)
 
-const deleteAccount = async (email) => {
+  const deleteAccount = async (email) => {
       try {
         const response = await axios({
           method: 'delete',
@@ -27,16 +30,17 @@ const deleteAccount = async (email) => {
       }
     };
 
-    const editAccount = () => {
-   }
+  const editAccount = (user) => {
+    navigate('/edit')
+  }
 
-   const age = (birthdate) => {
-    let date =  new Date().getFullYear();
-    let age = parseInt(parseInt(date)-parseInt(birthdate));
-    return age
-   }
+  const age = (birthdate) => {
+  let date =  new Date().getFullYear();
+  let age = parseInt(parseInt(date)-parseInt(birthdate));
+  return age
+  }
 
-   if(props.alone == "true") {
+  if(props.alone == "true") {
     return (
       <div className="card">
               <div className="userCard">
@@ -47,15 +51,11 @@ const deleteAccount = async (email) => {
                       <p>{users.city}, {users.country}</p>
                       <p>{users.phone}</p>
                       <p>{users.email}</p>
-                      <div className="buttons">
-                        <button className="buttonCollaborators" onClick={(e) => editAccount()}>Editer</button>
-                        <button className="buttonCollaborators" onClick={(e) => deleteAccount(users.email)}>Supprimer</button> 
-                      </div>
                   </div>
               </div>
       </div>
-  )
-   }
+    )
+  }
  else{
   return (
     <div className="card">
@@ -69,16 +69,15 @@ const deleteAccount = async (email) => {
                     <p>{user.phone}</p>
                     <p>{user.email}</p>
                     <div className="buttons">
-                      <button className="buttonCollaborators" onClick={(e) => editAccount()}>Editer</button>
+                      <button className="buttonCollaborators" onClick={(e) => editAccount(user)}>Editer</button>
                       <button className="buttonCollaborators" onClick={(e) => deleteAccount(user.email)}>Supprimer</button> 
                     </div>
                 </div>
             </div>
         ))}
     </div>
-)
+  )
  }
-
 }
 
 export default Card;
