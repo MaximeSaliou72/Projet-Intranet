@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import imgUser from '../assets/imgUser.jpg'
 import axios from 'axios';
-
+import { useUser } from '../lib/customHook';
 const Card = (props) => {
 
 const users = props.data;
-console.log(props.alone)
+// const data = [];
+// data = useUser();
+// console.log(data)
+
 const deleteAccount = async (email) => {
       try {
         const response = await axios({
@@ -32,6 +35,7 @@ const deleteAccount = async (email) => {
     let age = parseInt(parseInt(date)-parseInt(birthdate));
     return age
    }
+
    if(props.alone == "true") {
     return (
       <div className="card">
