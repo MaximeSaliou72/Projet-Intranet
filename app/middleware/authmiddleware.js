@@ -4,7 +4,7 @@ const db = require("../models");
 const UserModel = db.user;
 
 
-module.exports.headersTest = (req, res, next) => {
+module.exports.headersToken = (req, res, next) => {
   const authHeader = req.headers['authorization']
   const token = authHeader && authHeader.split(' ')[1]
   //  onsole.log(req.headers)
